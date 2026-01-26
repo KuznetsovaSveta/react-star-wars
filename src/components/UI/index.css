@@ -1,0 +1,9 @@
+:root {
+    --color-white: #fff;
+    --color-gray: #9c9c9c;
+    --color-black: #000;
+
+    --font-size-small: 14px;
+    --font-bold: 600;
+    --transition: .4s;
+}

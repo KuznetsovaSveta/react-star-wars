@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
+import UiButton from '@ui/UiButton/UiButton.jsx'
+
 import styles from "./PeopleNavigation.module.css";
 
 const PeopleNavigation = ({
@@ -15,32 +17,19 @@ const PeopleNavigation = ({
   console.log(counterPage);
 
   return (
-    <div className="navigation">
+    <div className={styles.navigation}>
       {/* TODO: здесь невалидный код получается, кнопка внутри ссылки */}
       <NavLink
         to={`/people/?page=${counterPage - 1}`}
         className={styles.navigation__link}
       >
-        <button
-          onClick={handleChangePrev}
-          // если prevPage нет, кнопка будет неактивна
-          disabled={!prevPage}
-          className={styles.navigation__button}
-        >
-          Previous
-        </button>
+        <UiButton text="Previous" onClick={handleChangePrev} disabled={!prevPage}/>
       </NavLink>
       <NavLink
         to={`/people/?page=${counterPage + 1}`}
         className={styles.navigation__link}
       >
-        <button
-          onClick={handleChangeNext}
-          className={styles.navigation__button}
-          disabled={!nextPage}
-        >
-          Next
-        </button>
+        <UiButton text="Next" onClick={handleChangeNext} disabled={!nextPage}/>
       </NavLink>
     </div>
   );

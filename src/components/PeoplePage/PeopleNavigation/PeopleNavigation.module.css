@@ -1,9 +1,8 @@
 .navigation{
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .navigation__link{
-    
-}
-.navigation__button{
-    
+    margin: var(--spacing-small);
 }

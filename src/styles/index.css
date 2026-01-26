@@ -8,10 +8,12 @@
 
   --border-radius-small: 3px;
 
+  --spacing-small: 10px;
   --spacing-medium: 20px;
   --spacing-large: 30px;
 
   --font-family-main: Arial, Helvetica, sans-serif;
+  --font-size-small: 14px;
   --font-size-main: 16px;
   --font-size-subheader: 20px;
   --font-size-header: 26px;
