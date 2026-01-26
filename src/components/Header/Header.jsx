@@ -11,7 +11,7 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/people" className={styles.header__link}>
+          <NavLink to="/people/?page=1" className={styles.header__link}>
             People
           </NavLink>
         </li>

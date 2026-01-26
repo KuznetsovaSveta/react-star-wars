@@ -1,3 +1,5 @@
+import { HTTPS, HTTP } from '@constants/api.js'
+
 // сначала написали запрос с помощью промисов, но лучше это делать асинхронными функциями
 // export const getApiResource = (url) => {
 //     fetch(url)
@@ -6,7 +8,22 @@
 //     .catch(error => console.log(error.message))
 // }
 
+/**
+ * Функция изменяет url с HTTP на HTTPS
+ * @param {String} url - url для изменения
+ * @returns {String} - url с HTTPS
+ */
+export const changeHTTP = url => {
+    const result = url ? url.replace(HTTP, HTTPS) : url
+    return result
+}
+
 // способ с асинхронной функцией
+/**
+ * Отправляет fetch запрос
+ * @param {String} url - url для запроса
+ * @returns {Promise} - Promise с результатом запроса
+ */
 export const getApiResource = async (url) => {
     try{
         const res = await fetch(url);

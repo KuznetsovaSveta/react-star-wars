@@ -1,4 +1,4 @@
-import { HTTP, HTTPS, SWAPI_ROOT, SWAPI_PEOPLE } from '@constants/api.js'
+import { HTTP, HTTPS, SWAPI_ROOT, SWAPI_PEOPLE, SWAPI_PARAM_PAGE} from '@constants/api.js'
 
 const checkProtocol = url => {
     if (url.indexOf(HTTPS) !== -1) {
@@ -6,6 +6,14 @@ const checkProtocol = url => {
     }
 
     return HTTP;
+}
+
+// вычисляем текущую страницу
+export const getPeoplePageId = url => {
+    const position = url.lastIndexOf(SWAPI_PARAM_PAGE);
+    const id = url.slice(position+SWAPI_PARAM_PAGE.length);
+
+    return Number(id);
 }
 
 // Получить ID персонажа по URL
