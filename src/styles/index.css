@@ -7,7 +7,9 @@
   --color-violet: #ae72c2;
 
   --border-radius-small: 3px;
+  --border-radius-medium: 5px;
 
+  --spacing-ultrasmall: 5px;
   --spacing-small: 10px;
   --spacing-medium: 20px;
   --spacing-large: 30px;
@@ -25,6 +27,8 @@
   --transition: .4s;
 
   --width-max: 1200px;
+
+  --margin-list: 7px;
 
   /* переменные для цветовых тем */
   --theme-default-header: #cccc46;

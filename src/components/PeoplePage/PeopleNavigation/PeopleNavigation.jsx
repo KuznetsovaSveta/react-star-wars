@@ -14,7 +14,7 @@ const PeopleNavigation = ({
 }) => {
   const handleChangePrev = () => getResource(prevPage);
   const handleChangeNext = () => getResource(nextPage);
-  console.log(counterPage);
+  // console.log(counterPage);
 
   return (
     <div className={styles.navigation}>

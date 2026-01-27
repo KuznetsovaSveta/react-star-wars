@@ -23,7 +23,8 @@ const App = () => {
                 key={index}
                 path={route.path}
                 exact={route.exact}
-                element={route.element()}
+                // element={route.element()}
+                element={<route.element />}
               />
             ))}
             ;

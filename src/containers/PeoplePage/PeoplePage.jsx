@@ -9,7 +9,7 @@ import PeopleNavigation from '@components/PeoplePage/PeopleNavigation/PeopleNavi
 // утилиты
 import { getApiResource, changeHTTP } from '@utils/network.js'
 // сервисы/функции
-import { getPeopleId, getPeopleImage, getPeoplePageId } from '@services/getPeopleData.js'
+import { getPeopleId, getPeoplePageId } from '@services/getPeopleData.js'
 // импортируем константы
 import { API_PEOPLE } from '@constants/api.js'
 import { useQueryParams } from '@hooks/useQueryParams.js';
@@ -46,9 +46,9 @@ const PeoplePage = ({ setErrorApi }) => {
             // // map возвращает новый массив
             const peopleList = res.results.map(({ name, url }) => {
                 const id = getPeopleId(url);
-                const img = getPeopleImage(id);
+                // const img = getPeopleImage(id);
 
-                return { id, name, img }
+                return { id, name }
             });
 
             setPeople(peopleList);

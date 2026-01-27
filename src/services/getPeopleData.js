@@ -31,5 +31,4 @@ const getId = (url, category) => {
 
 export const getPeopleId = (url) => getId(url, SWAPI_PEOPLE);
 
-// TODO: найти замену апи с картинками
-export const getPeopleImage = (id) => `https://i.pinimg.com/originals/28/83/1e/28831e2dd3a6b2b1f9c563c75fabdea4.jpg`
+// export const getPeopleImage = (id) => `https://i.pinimg.com/originals/28/83/1e/28831e2dd3a6b2b1f9c563c75fabdea4.jpg`
