@@ -49,3 +49,12 @@ export const getApiResource = async (url) => {
 //     const body = await getApiResource(SWAPI_ROOT + SWAPI_PEOPLE)
 //     console.log(body)
 // })();
+
+// пришел массив урлов, которые перебираются и на каждой итерации цикла берется элемент массива(один урл), на который мы делаем запрос через fetch, получаем ответ - это все попадает в Promise.all
+export const makeConcurrentRequest = async (url) => {
+    const res = await Promise.all(url.map(res => {
+        return fetch(res).then(res => res.json())
+    }));
+
+    return res;
+}

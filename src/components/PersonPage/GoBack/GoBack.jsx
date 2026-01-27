@@ -9,7 +9,7 @@ const GoBack = () => {
     const handleGoBack = event => {
         event.preventDefault();
         navigate(-1);
-        console.log('handleGoBack');
+        // console.log('handleGoBack');
     }
   return(
     <>

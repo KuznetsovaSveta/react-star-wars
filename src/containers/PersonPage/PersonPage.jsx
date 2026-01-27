@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PersonInfo from "@components/PersonPage/PersonInfo/PersonInfo.jsx";
 import PersonPhoto from "@components/PersonPage/PersonPhoto/PersonPhoto.jsx";
+import PersonFilms from "@components/PersonPage/PersonFilms/PersonFilms.jsx";
 import GoBack from "@components/PersonPage/GoBack/GoBack.jsx";
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
@@ -13,12 +14,12 @@ const PersonPage = ({ setErrorApi }) => {
   const id = useParams().id;
   const [personInfo, setPersonInfo] = useState(null);
   const [personName, setPersonName] = useState(null);
-  const [personPhoto, setPersonPhoto] = useState(null);
+  const [personFilms, setPersonFilms] = useState(null);
   useEffect(() => {
     // getApiResource - асинхронная функция, поэтому для работы с ней ее нужно вызывать внутри асинхронной функции. Делаем самовызывающуюся функцию
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}`);
-      console.log(res);
+      // console.log(res);
       if (res) {
         setPersonInfo([
           { title: "Height", data: res.height },
@@ -31,6 +32,10 @@ const PersonPage = ({ setErrorApi }) => {
         ]);
 
         setPersonName(res.name);
+
+        // console.log('films', res.films);
+
+        res.films.length && setPersonFilms(res.films);
 
         setErrorApi(false);
       } else {
@@ -47,6 +52,7 @@ const PersonPage = ({ setErrorApi }) => {
         <div className={styles.person__container}>
           <PersonPhoto id={id} personName={personName} />
           {personInfo && <PersonInfo personInfo={personInfo} />}
+          {personFilms && <PersonFilms personFilms={personFilms}/>}
         </div>
       </div>
     </>
