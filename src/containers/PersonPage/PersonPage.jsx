@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import PersonInfo from "@components/PersonPage/PersonInfo/PersonInfo.jsx";
 import PersonPhoto from "@components/PersonPage/PersonPhoto/PersonPhoto.jsx";
+import GoBack from "@components/PersonPage/GoBack/GoBack.jsx";
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
 import { API_PERSON } from "@constants/api.js";
@@ -40,7 +41,8 @@ const PersonPage = ({ setErrorApi }) => {
 
   return (
     <>
-      <div className="person">
+    <GoBack />
+      <div className={styles.person}>
         <span className={styles.person__name}>{personName}</span>
         <div className={styles.person__container}>
           <PersonPhoto id={id} personName={personName} />

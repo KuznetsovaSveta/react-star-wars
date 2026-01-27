@@ -3,6 +3,7 @@
 }
 
 .person__name{
+    display: inline-block;
     background-color: var(--color-violet);
     color: var(--color-white);
     padding: var(--spacing-small);

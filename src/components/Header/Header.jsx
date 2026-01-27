@@ -11,7 +11,8 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/people/?page=1" className={styles.header__link}>
+          {/* указываем exact="false", потому что нам нужно, чтобы ссылка была активной когда открыта страница page и когда открыта страница героя(people/id) */}
+          <NavLink to="/people/?page=1" className={styles.header__link} >
             People
           </NavLink>
         </li>
