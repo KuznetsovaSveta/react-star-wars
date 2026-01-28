@@ -1,6 +1,8 @@
 import {ADD_PERSON_TO_FAVORITE, REMOVE_PERSON_FROM_FAVORITE} from '@store/constants/actiontypes.js'
 import { omit } from 'lodash';
 
+import { getLocalStorage } from '@utils/localStorage';
+
 // const store = {
 //     2: {
 //         name: 'C-3PO',
@@ -12,7 +14,8 @@ import { omit } from 'lodash';
 //     },
 // }
 
-const initialState = {};
+// получаем данные из локального хранилища
+const initialState = getLocalStorage('store');
 
 const favoriteReducer = (state = initialState, action) => {
     switch (action.type) {
