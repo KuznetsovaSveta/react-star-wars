@@ -18,5 +18,5 @@
     display: flex;
     flex-wrap: wrap;
     padding: var(--spacing-medium);
-    border-radius: var(--border-radius-small);
+    border-bottom-left-radius: var(--border-radius-small);
 }

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import PersonInfo from "@components/PersonPage/PersonInfo/PersonInfo.jsx";
 import PersonPhoto from "@components/PersonPage/PersonPhoto/PersonPhoto.jsx";
 // import PersonFilms from "@components/PersonPage/PersonFilms/PersonFilms.jsx";
@@ -16,14 +17,25 @@ const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms/
 
 const PersonPage = ({ setErrorApi }) => {
   const id = useParams().id;
+  const [personId, setPersonId] = useState(null);
   const [personInfo, setPersonInfo] = useState(null);
   const [personName, setPersonName] = useState(null);
+  const [personPhoto, setPersonPhoto] = useState(null);
   const [personFilms, setPersonFilms] = useState(null);
+  const [personFavorite, setPersonFavorite] = useState(false);
+
+  const storeData = useSelector(state => state.favoriteReducer);
+
   useEffect(() => {
     // getApiResource - асинхронная функция, поэтому для работы с ней ее нужно вызывать внутри асинхронной функции. Делаем самовызывающуюся функцию
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}`);
-      // console.log(res);
+      setPersonId(id);
+      setPersonPhoto(`/img/${id}.webp`);
+
+      storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
+      
+      // console.log(id, personId);
       if (res) {
         setPersonInfo([
           { title: "Height", data: res.height },
@@ -36,8 +48,6 @@ const PersonPage = ({ setErrorApi }) => {
         ]);
 
         setPersonName(res.name);
-
-        // console.log('films', res.films);
 
         res.films.length && setPersonFilms(res.films);
 
@@ -54,7 +64,8 @@ const PersonPage = ({ setErrorApi }) => {
       <div className={styles.person}>
         <span className={styles.person__name}>{personName}</span>
         <div className={styles.person__container}>
-          <PersonPhoto id={id} personName={personName} />
+          <PersonPhoto personId={personId} personName={personName} personPhoto={personPhoto} personFavorite={personFavorite}
+setPersonFavorite={setPersonFavorite}/>
           {personInfo && <PersonInfo personInfo={personInfo} />}
           {personFilms && (
             <Suspense fallback={<UiLoading theme="white"/>}>

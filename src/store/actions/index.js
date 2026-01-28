@@ -1,12 +1,16 @@
-import {ADD_PESON_TO_FAVORITE, REMOVE_PESON_FROM_FAVORITE} from '@store/actions/index.js'
+import {
+  ADD_PERSON_TO_FAVORITE,
+  REMOVE_PERSON_FROM_FAVORITE,
+} from "@store/constants/actiontypes.js";
 
 // пишем функции, которые вернут объекты
-export const addPersonToFavoite = () => ({
-    type: ADD_PESON_TO_FAVORITE,
-    payload: '',
+// принимает объект person и возвращает объект person дальше - в reducer
+export const addPersonToFavoite = person => ({
+    type: ADD_PERSON_TO_FAVORITE,
+    payload: person,
 })
 
-export const removePersonFromFavoite = () => ({
-    type: REMOVE_PESON_FROM_FAVORITE,
-    payload: '',
-})
+export const removePersonFromFavoite = personId => ({
+  type: REMOVE_PERSON_FROM_FAVORITE,
+  payload: personId,
+});
