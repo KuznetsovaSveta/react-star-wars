@@ -1,14 +1,18 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router";
 import PersonInfo from "@components/PersonPage/PersonInfo/PersonInfo.jsx";
 import PersonPhoto from "@components/PersonPage/PersonPhoto/PersonPhoto.jsx";
-import PersonFilms from "@components/PersonPage/PersonFilms/PersonFilms.jsx";
+// import PersonFilms from "@components/PersonPage/PersonFilms/PersonFilms.jsx";
 import GoBack from "@components/PersonPage/GoBack/GoBack.jsx";
+import UiLoading from "@ui/UiLoading/UiLoading.jsx"
+
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
 import { API_PERSON } from "@constants/api.js";
 import styles from "./PersonPage.module.css";
+
+const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms/PersonFilms.jsx'));
 
 const PersonPage = ({ setErrorApi }) => {
   const id = useParams().id;
@@ -52,7 +56,11 @@ const PersonPage = ({ setErrorApi }) => {
         <div className={styles.person__container}>
           <PersonPhoto id={id} personName={personName} />
           {personInfo && <PersonInfo personInfo={personInfo} />}
-          {personFilms && <PersonFilms personFilms={personFilms}/>}
+          {personFilms && (
+            <Suspense fallback={<UiLoading theme="white"/>}>
+              <PersonFilms personFilms={personFilms}/>
+            </Suspense>
+          )}
         </div>
       </div>
     </>
