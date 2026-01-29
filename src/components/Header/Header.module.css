@@ -3,6 +3,12 @@
     align-items: center;
     margin-bottom: var(--spacing-large);
 }
+.header__logo{
+    width: 60px;
+    height: 60px;
+    margin-right: var(--spacing-large);
+    object-fit: cover;
+}
 .header__list{
     display: flex;
     flex-wrap: wrap;
