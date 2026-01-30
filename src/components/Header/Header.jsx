@@ -50,6 +50,11 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/search" className={styles.header__link}>
+            Search
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/not-found" className={styles.header__link}>
             Not Found
           </NavLink>

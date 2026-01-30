@@ -1,6 +1,7 @@
 import PeoplePage from "@containers/PeoplePage/PeoplePage";
 import PersonPage from "@containers/PersonPage/PersonPage";
 import HomePage from "@containers/HomePage/HomePage";
+import SeacrhPage from "@containers/SearchPage/SearchPage";
 import FavoritesPage from "@containers/FavoritesPage/FavoritesPage";
 import NotFoundPage from "@containers/NotFoundPage/NotFoundPage";
 
@@ -19,6 +20,11 @@ const routesConfig = [
     {
         path: '/people/:id',
         element: PersonPage,
+        exact: true,
+    },
+    {
+        path: '/search',
+        element: SeacrhPage,
         exact: true,
     },
     {
