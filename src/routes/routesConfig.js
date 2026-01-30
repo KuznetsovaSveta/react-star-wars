@@ -4,6 +4,7 @@ import HomePage from "@containers/HomePage/HomePage";
 import SeacrhPage from "@containers/SearchPage/SearchPage";
 import FavoritesPage from "@containers/FavoritesPage/FavoritesPage";
 import NotFoundPage from "@containers/NotFoundPage/NotFoundPage";
+import ErrorMessage from "@components/ErrorMessage/ErrorMessage.jsx";
 
 const routesConfig = [
     {
@@ -30,6 +31,11 @@ const routesConfig = [
     {
         path: '/favorites',
         element: FavoritesPage,
+        exact: true,
+    },
+    {
+        path: '/fail',
+        element: ErrorMessage,
         exact: true,
     },
     // это написано для наглядности

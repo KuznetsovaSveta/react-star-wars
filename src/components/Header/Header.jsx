@@ -59,6 +59,11 @@ const Header = () => {
             Not Found
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/fail" className={styles.header__link}>
+            Fail
+          </NavLink>
+        </li>
       </ul>
       <Favorite />
     </div>
