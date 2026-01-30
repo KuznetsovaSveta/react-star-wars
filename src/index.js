@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import {REPO_NAME} from '@constants/repo.js'
+
 import ThemeProvider from "@context/ThemeProvider.jsx";
 
 import store from "@store/store.js";
@@ -15,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={`/${REPO_NAME}/`}>
       {/* ThemeProvider - все, что в нем есть, передается в другие компоненты*/}
         <ThemeProvider>
           <App />
