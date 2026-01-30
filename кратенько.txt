@@ -144,16 +144,11 @@ const ThemeContext = React.createContext();
 описание на 18 минуте 19 части
 
 
+чтобы пути на github pages были корректными, добавляем в package.json адрес домашней страницы:
+"homepage": ""
 
-
-
-
-
-
-
-
-
-
-
-
-
+для автоматизации загрузки обновленных файлов на githubpages используем библиотеку gh-pages
+для этого добавляем в package.json в scripts
+"build-gh-pages": "gh-pages -d dist"
+и затем добавляем две команды в одну, чтобы не писать каждый раз сначала npm run build, а потом npm build-gh-pages:
+"deploy": "npm run build && npm run build-gh-pages"
