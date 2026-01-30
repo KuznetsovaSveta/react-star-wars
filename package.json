@@ -1,6 +1,7 @@
 {
   "name": "react-star-wars",
   "version": "0.1.0",
+  "homepage": "react-star-wars",
   "private": true,
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
