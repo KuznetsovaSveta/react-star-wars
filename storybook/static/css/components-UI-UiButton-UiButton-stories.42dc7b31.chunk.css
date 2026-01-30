@@ -1,0 +1,62 @@
+:root {
+    --color-white: #fff;
+    --color-lightgray: #dfe2df;
+    --color-gray: #9c9c9c;
+    --color-blue: #6a83fb;
+    --color-black: #000;
+
+    --font-size-small: 14px;
+    --font-size-medium: 14px;
+    --font-family-main: Arial, Helvetica, sans-serif;
+    --font-bold: 600;
+    --transition: .4s;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+.UiButton_button__wmJc4 {
+    min-width: 100px;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-bold);
+    background: none;
+    outline: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.UiButton_button__wmJc4:disabled{
+    color: var(--color-gray);
+    border-color: var(--color-gray);
+    cursor: default;
+}
+
+.UiButton_dark__S7xdY {
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+}
+
+.UiButton_dark__S7xdY:hover:not(:disabled) {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.UiButton_light__yXhH8 {
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+}
+
+.UiButton_light__yXhH8:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/*# sourceMappingURL=components-UI-UiButton-UiButton-stories.42dc7b31.chunk.css.map*/
