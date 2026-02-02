@@ -42,7 +42,7 @@ const SearchPage = ({ setErrorApi }) => {
       // peopleList - массив, содержащий объекты. Один герой - один объект с id, name, img
       const peopleList = res.results.map(({ name, url }) => {
         const id = getPeopleId(url);
-        const img = `/img/${id}.webp`;
+        const img = `img/${id}.webp`;
         return {
           id,
           name,
