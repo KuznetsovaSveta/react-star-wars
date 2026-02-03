@@ -10,6 +10,7 @@ import UiLoading from "@ui/UiLoading/UiLoading.jsx"
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
+import {getBaseUrl} from "@utils/baseUrl.js";
 import { API_PERSON } from "@constants/api.js";
 import styles from "./PersonPage.module.css";
 
@@ -31,7 +32,7 @@ const PersonPage = ({ setErrorApi }) => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}`);
       setPersonId(id);
-      setPersonPhoto(`img/${id}.webp`);
+      setPersonPhoto(`${getBaseUrl()}/img/${id}.webp`);
 
       storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
       
