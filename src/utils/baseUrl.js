@@ -3,5 +3,5 @@ export const getBaseUrl = () => {
     return '';
   }
   // Для GitHub Pages
-  return '/react-star-wars';
+  return '/react-star-wars/';
 };

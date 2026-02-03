@@ -32,7 +32,7 @@ const PersonPage = ({ setErrorApi }) => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}`);
       setPersonId(id);
-      setPersonPhoto(`${getBaseUrl()}/img/${id}.webp`);
+      setPersonPhoto(`${getBaseUrl()}img/${id}.webp`);
 
       storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
       
