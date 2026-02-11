@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-
-import emptyIcon from './img/favorite-empty.svg';
-import fillIcon from './img/favorite-fill.svg';
+import { getBaseUrl } from "@utils/baseUrl.js";
+import emptyIcon from "./img/favorite-empty.svg";
+import fillIcon from "./img/favorite-fill.svg";
 
 import {
   addPersonToFavoite,
@@ -38,7 +38,7 @@ const PersonPhoto = ({
   // если персонаж в избранном, удаляем его оттуда, если нет - добавляем
   const dispatchFavoritePeople = () => {
     personFavorite ? remove() : add();
-  }
+  };
 
   return (
     <>
@@ -46,10 +46,19 @@ const PersonPhoto = ({
         <img
           className={styles.person__photo}
           src={personPhoto}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = `${getBaseUrl()}img/default.jpg`;
+          }}
           alt={personName}
         />
 
-        <img src={personFavorite ? fillIcon : emptyIcon} alt="Add to favorite" onClick={dispatchFavoritePeople} className={styles.favorite}/>
+        <img
+          src={personFavorite ? fillIcon : emptyIcon}
+          alt="Add to favorite"
+          onClick={dispatchFavoritePeople}
+          className={styles.favorite}
+        />
       </div>
     </>
   );

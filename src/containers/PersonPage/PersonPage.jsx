@@ -6,15 +6,17 @@ import PersonInfo from "@components/PersonPage/PersonInfo/PersonInfo.jsx";
 import PersonPhoto from "@components/PersonPage/PersonPhoto/PersonPhoto.jsx";
 // import PersonFilms from "@components/PersonPage/PersonFilms/PersonFilms.jsx";
 import GoBack from "@components/PersonPage/GoBack/GoBack.jsx";
-import UiLoading from "@ui/UiLoading/UiLoading.jsx"
+import UiLoading from "@ui/UiLoading/UiLoading.jsx";
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
-import {getBaseUrl} from "@utils/baseUrl.js";
+import { getBaseUrl } from "@utils/baseUrl.js";
 import { API_PERSON } from "@constants/api.js";
 import styles from "./PersonPage.module.css";
 
-const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms/PersonFilms.jsx'));
+const PersonFilms = React.lazy(
+  () => import("@components/PersonPage/PersonFilms/PersonFilms.jsx"),
+);
 
 const PersonPage = ({ setErrorApi }) => {
   const id = useParams().id;
@@ -25,7 +27,7 @@ const PersonPage = ({ setErrorApi }) => {
   const [personFilms, setPersonFilms] = useState(null);
   const [personFavorite, setPersonFavorite] = useState(false);
 
-  const storeData = useSelector(state => state.favoriteReducer);
+  const storeData = useSelector((state) => state.favoriteReducer);
 
   useEffect(() => {
     // getApiResource - асинхронная функция, поэтому для работы с ней ее нужно вызывать внутри асинхронной функции. Делаем самовызывающуюся функцию
@@ -35,8 +37,7 @@ const PersonPage = ({ setErrorApi }) => {
       setPersonPhoto(`${getBaseUrl()}img/${id}.webp`);
 
       storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
-      
-      // console.log(id, personId);
+
       if (res) {
         setPersonInfo([
           { title: "Height", data: res.height },
@@ -61,16 +62,21 @@ const PersonPage = ({ setErrorApi }) => {
 
   return (
     <>
-    <GoBack />
+      <GoBack />
       <div className={styles.person}>
         <span className={styles.person__name}>{personName}</span>
         <div className={styles.person__container}>
-          <PersonPhoto personId={personId} personName={personName} personPhoto={personPhoto} personFavorite={personFavorite}
-setPersonFavorite={setPersonFavorite}/>
+          <PersonPhoto
+            personId={personId}
+            personName={personName}
+            personPhoto={personPhoto}
+            personFavorite={personFavorite}
+            setPersonFavorite={setPersonFavorite}
+          />
           {personInfo && <PersonInfo personInfo={personInfo} />}
           {personFilms && (
-            <Suspense fallback={<UiLoading theme="white"/>}>
-              <PersonFilms personFilms={personFilms}/>
+            <Suspense fallback={<UiLoading theme="white" />}>
+              <PersonFilms personFilms={personFilms} />
             </Suspense>
           )}
         </div>
