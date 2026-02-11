@@ -16,7 +16,7 @@ const PeopleList = ({ people }) => {
               className={styles.person__photo}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = `${getBaseUrl()}img/default.svg`;
+                e.target.src = `${getBaseUrl()}img/default.jpg`;
               }}
             />
             <p className={styles.person__name}>{name}</p>
