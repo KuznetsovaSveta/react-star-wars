@@ -13,6 +13,11 @@ const routesConfig = [
         exact: true,
     },
     {
+        path: '/react-star-wars/',
+        element: HomePage,
+        exact: true,
+    },
+    {
         path: '/people',
         element: PeoplePage,
         exact: true,
