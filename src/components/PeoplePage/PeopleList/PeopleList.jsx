@@ -15,7 +15,8 @@ const PeopleList = ({ people }) => {
               alt={name}
               className={styles.person__photo}
               onError={(e) => {
-                e.target.src = `${getBaseUrl()}img/default.webp`;
+                e.target.onerror = null;
+                e.target.src = `${getBaseUrl()}img/default.svg`;
               }}
             />
             <p className={styles.person__name}>{name}</p>
