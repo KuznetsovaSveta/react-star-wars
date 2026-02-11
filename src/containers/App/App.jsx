@@ -1,6 +1,5 @@
 import {
   Route,
-  BrowserRouter,
   Routes,
 } from "react-router-dom";
 import routesConfig from "@routes/routesConfig.js";
@@ -23,16 +22,12 @@ const App = () => {
                 key={index}
                 path={route.path}
                 exact={route.exact}
-                // element={route.element()}
                 element={<route.element />}
               />
             ))}
             ;
           </Routes>
           </div>
-      
-
-      {/* <PeoplePage /> */}
     </>
   );
 };
