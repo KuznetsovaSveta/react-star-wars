@@ -5,10 +5,12 @@
 
     position: relative;
     display: inline-flex;
+    max-width: 100%;
 }
 
 .UiInput_input__kZoA9{
-    min-width: 300px;
+    width: 300px;
+    max-width: 100%;
     padding: 10px calc(var(--clear-width) + 20px) 10px 15px;
     border: var(--border) solid;
     border-color: var(--color-lightgray);
@@ -39,4 +41,4 @@
     opacity: .2;
 }
 
-/*# sourceMappingURL=components-UI-UiInput-UiInput-stories.4e4449c4.chunk.css.map*/
+/*# sourceMappingURL=components-UI-UiInput-UiInput-stories.9dc186c0.chunk.css.map*/
