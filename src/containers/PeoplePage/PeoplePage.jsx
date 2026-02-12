@@ -13,8 +13,6 @@ import { getPeopleId, getPeoplePageId } from '@services/getPeopleData.js'
 // импортируем константы
 import { API_PEOPLE } from '@constants/api.js'
 import { useQueryParams } from '@hooks/useQueryParams.js';
-// импортируем стили
-import styles from './PeoplePage.module.css';
 
 
 
