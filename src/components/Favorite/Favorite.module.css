@@ -28,3 +28,8 @@
     height: 100%;
     object-fit: cover;
 }
+@media(max-width: 768px){
+    .container{
+        margin-left: 20px;
+    }
+}

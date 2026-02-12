@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import cn from "classnames";
 import Favorite from "@components/Favorite/Favorite.jsx";
 import {
   useTheme,
@@ -11,12 +12,22 @@ import {
 import logoDroid from "./img/droid.svg";
 import logoLightsaber from "./img/lightsaber.svg";
 import logoSpaceStation from "./img/space-station.svg";
+import burger from "./img/burger.svg";
+import close from "./img/close.svg";
 
 import styles from "./Header.module.css";
 
 const Header = () => {
   const [logo, setLogo] = useState(logoLightsaber);
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const isTheme = useTheme();
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/people/?page=1", label: "People" },
+    { to: "/search", label: "Search" },
+    { to: "/not-found", label: "Not Found" },
+    { to: "/fail", label: "Fail" },
+  ];
 
   useEffect(() => {
     switch (isTheme.theme) {
@@ -34,37 +45,45 @@ const Header = () => {
     }
   }, [isTheme]);
 
+  const handleBurgerClick = () => {
+    setIsMenuActive(true);
+  };
+
+  const closeMenu = () => {
+    setTimeout(() => {
+      setIsMenuActive(false);
+    }, 300)
+  };
+
   return (
     <div className={styles.header}>
-      <img src={logo} alt="" className={styles.header__logo}/>
-      <ul className={styles.header__list}>
-        <li>
-          <NavLink to="/" className={styles.header__link}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          {/* указываем exact="false", потому что нам нужно, чтобы ссылка была активной когда открыта страница page и когда открыта страница героя(people/id) */}
-          <NavLink to="/people/?page=1" className={styles.header__link}>
-            People
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/search" className={styles.header__link}>
-            Search
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/not-found" className={styles.header__link}>
-            Not Found
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/fail" className={styles.header__link}>
-            Fail
-          </NavLink>
-        </li>
-      </ul>
+      <img src={logo} alt="" className={styles.header__logo} />
+      <div
+        className={cn(
+          styles.header__listWrapper,
+          isMenuActive ? styles.active : "",
+        )}
+      >
+        <div className={styles.header__close} onClick={closeMenu}>
+          <img src={close} alt="" />
+        </div>
+        <ul className={styles.header__list}>
+          {navItems.map((item) => (
+            <li key={item.to}>
+              <NavLink
+                to={item.to}
+                className={styles.header__link}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.burger} onClick={handleBurgerClick}>
+        <img src={burger} alt="" />
+      </div>
       <Favorite />
     </div>
   );
