@@ -18,6 +18,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <BrowserRouter basename={`/${REPO_NAME}/`}> */}
+      {/* если открывается локально - удалить basename */}
       <BrowserRouter>
       {/* ThemeProvider - все, что в нем есть, передается в другие компоненты*/}
         <ThemeProvider>

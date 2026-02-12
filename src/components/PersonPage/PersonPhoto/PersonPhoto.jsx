@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
+import { getBaseUrl } from "@utils/baseUrl";
 import emptyIcon from "./img/favorite-empty.svg";
 import fillIcon from "./img/favorite-fill.svg";
 
@@ -17,6 +18,7 @@ const PersonPhoto = ({
   personFavorite,
   setPersonFavorite,
 }) => {
+  const baseUrl = getBaseUrl();
   const dispatch = useDispatch();
   const add = () => {
     dispatch(
@@ -46,11 +48,11 @@ const PersonPhoto = ({
           className={styles.person__photo}
           src={personPhoto}
           onError={(e) => {
-            if (e.target.src.includes('default.jpg')) {
+            if (e.target.src.includes("default.jpg")) {
               return; // Уже пробовали заглушку - выходим
             }
             e.target.onerror = null;
-            e.target.src = `/img/default.jpg`;
+            e.target.src = `${baseUrl}/img/default.jpg`;
           }}
           alt={personName}
         />

@@ -1,0 +1,1 @@
+export const getBaseUrl = () => process.env.PUBLIC_URL || '';

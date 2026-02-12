@@ -9,6 +9,7 @@ import UiLoading from "@ui/UiLoading/UiLoading.jsx";
 
 import { withErrorApi } from "@hoc-helpers/withErrorApi.jsx";
 import { getApiResource } from "@utils/network.js";
+import { getBaseUrl } from '@utils/baseUrl';
 import { API_PERSON } from "@constants/api.js";
 import styles from "./PersonPage.module.css";
 
@@ -17,6 +18,7 @@ const PersonFilms = React.lazy(
 );
 
 const PersonPage = ({ setErrorApi }) => {
+  const baseUrl = getBaseUrl();
   const id = useParams().id;
   const [personId, setPersonId] = useState(null);
   const [personInfo, setPersonInfo] = useState(null);
@@ -32,7 +34,7 @@ const PersonPage = ({ setErrorApi }) => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}`);
       setPersonId(id);
-      setPersonPhoto(`/img/${id}.webp`);
+      setPersonPhoto(`${baseUrl}/img/${id}.webp`);
 
       storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false);
 

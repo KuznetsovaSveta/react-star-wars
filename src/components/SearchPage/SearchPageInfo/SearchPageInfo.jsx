@@ -1,36 +1,40 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router";
+import { getBaseUrl } from "@utils/baseUrl";
 import styles from "./SearchPageInfo.module.css";
 
-const SearchPageInfo = ({ people }) => (
-  <>
-    {people.length ? (
-      <ul className={styles.list}>
-        {people.map(({ id, name, img }) => (
-          <li key={id} className={styles.person__item}>
-            <Link to={`/people/${id}`} className={styles.person__link}>
-              <img
-                src={img}
-                onError={(e) => {
-                  if (e.target.src.includes('default.jpg')) {
-                    return; // Уже пробовали заглушку - выходим
-                  }
-                  e.target.onerror = null;
-                  e.target.src = `/img/default.jpg`;
-                }}
-                alt={name}
-                className={styles.person__photo}
-              />
-              <p className={styles.person__name}>{name}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <h2 className={styles.comment}>No results</h2>
-    )}
-  </>
-);
+const SearchPageInfo = ({ people }) => {
+  const baseUrl = getBaseUrl();
+  return (
+    <>
+      {people.length ? (
+        <ul className={styles.list}>
+          {people.map(({ id, name, img }) => (
+            <li key={id} className={styles.person__item}>
+              <Link to={`/people/${id}`} className={styles.person__link}>
+                <img
+                  src={img}
+                  onError={(e) => {
+                    if (e.target.src.includes("default.jpg")) {
+                      return; // Уже пробовали заглушку - выходим
+                    }
+                    e.target.onerror = null;
+                    e.target.src = `${baseUrl}/img/default.jpg`;
+                  }}
+                  alt={name}
+                  className={styles.person__photo}
+                />
+                <p className={styles.person__name}>{name}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h2 className={styles.comment}>No results</h2>
+      )}
+    </>
+  );
+};
 
 SearchPageInfo.propTypes = {
   people: PropTypes.array,
