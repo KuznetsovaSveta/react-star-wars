@@ -10,6 +10,8 @@
     --color-shadow-neitral: rgba(224, 224, 81, .4);;
 
     display: flex;
+    justify-content: center;
+    gap: var(--spacing-medium);
     flex-wrap: wrap;
     margin-top: 40px;
 }
@@ -20,7 +22,6 @@
     left: 0;
     width: 250px;
     height: 450px;
-    margin-right: var(--spacing-medium);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-black);
     transition: var(--transition);

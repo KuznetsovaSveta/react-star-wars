@@ -5,10 +5,12 @@
 
     position: relative;
     display: inline-flex;
+    max-width: 100%;
 }
 
 .input{
-    min-width: 300px;
+    width: 300px;
+    max-width: 100%;
     padding: 10px calc(var(--clear-width) + 20px) 10px 15px;
     border: var(--border) solid;
     border-color: var(--color-lightgray);
