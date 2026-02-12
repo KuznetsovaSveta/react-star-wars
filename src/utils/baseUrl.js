@@ -1,6 +1,6 @@
 export const getBaseUrl = () => {
   if (window.location.hostname === 'localhost') {
-    return '';
+    return '/';
   }
   // Для GitHub Pages
   return '/react-star-wars/';
