@@ -19,7 +19,6 @@ root.render(
     <Provider store={store}>
       {/* <BrowserRouter basename={`/${REPO_NAME}/`}> */}
       <BrowserRouter>
-      {/* <BrowserRouter> */}
       {/* ThemeProvider - все, что в нем есть, передается в другие компоненты*/}
         <ThemeProvider>
           <App />

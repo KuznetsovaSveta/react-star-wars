@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router";
-import { getBaseUrl } from "@utils/baseUrl.js";
 import styles from "./SearchPageInfo.module.css";
 
 const SearchPageInfo = ({ people }) => (
@@ -13,8 +12,11 @@ const SearchPageInfo = ({ people }) => (
               <img
                 src={img}
                 onError={(e) => {
+                  if (e.target.src.includes('default.jpg')) {
+                    return; // Уже пробовали заглушку - выходим
+                  }
                   e.target.onerror = null;
-                  e.target.src = `${getBaseUrl()}img/default.jpg`;
+                  e.target.src = `/img/default.jpg`;
                 }}
                 alt={name}
                 className={styles.person__photo}
