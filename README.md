@@ -1,3 +1,66 @@
+# ✨ React Star Wars — Galactic Heroes Database
+
+Интерактивный справочник персонажей вселенной **Star Wars**, созданный на React с использованием публичного **SWAPI**. Проект демонстрирует работу с асинхронными запросами, маршрутизацией и глобальным состоянием.
+
+🔗 **Демо:** [kuznetsovasveta.github.io/react-star-wars](https://kuznetsovasveta.github.io/react-star-wars/)
+
+---
+
+## 🌟 О проекте
+
+Одностраничное приложение (SPA) для поиска и просмотра информации о героях Звёздных Войн. Реализована пагинация, фильтрация по сторонам силы, избранное и адаптивный интерфейс в стилистике киновселенной.
+
+---
+
+## 🛠 Технологический стек
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS Modules](https://img.shields.io/badge/CSS_Modules-000000?style=for-the-badge&logo=css-modules&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github%20pages&logoColor=white)
+
+- **React 18** — функциональные компоненты, хуки (useState, useEffect, useRef, custom hooks)
+- **React Router v6** — динамическая маршрутизация, защищённые роуты
+- **Redux Toolkit** — глобальное состояние, слайсы (избранное, фильтры, тема)
+- **CSS Modules** — изолированная стилизация компонентов
+- **SWAPI** — интеграция со сторонним REST API
+- **GitHub Pages** — деплой и хостинг
+
+---
+
+## 🚀 Функциональность
+
+### ✅ Основной функционал
+
+| Возможность | Реализация |
+|-------------|------------|
+| 📋 **Каталог персонажей** | Пагинация, загрузка с SWAPI, отображение карточек |
+| 🔍 **Поиск по имени** | Debounce-оптимизация, фильтрация на клиенте |
+| ⚖️ **Фильтр по стороне** | Light Side / Dark Side / All, привязан к Redux |
+| ❤️ **Избранное** | Добавление/удаление, сохранение в localStorage |
+| 🧑‍🎤 **Детальная страница** | Динамический роутинг, информация о герое |
+| 🎨 **Тёмная/светлая тема** | Глобальный переключатель, кастомные CSS-переменные |
+| 📱 **Адаптивность** | Mobile-first, резиновая верстка, бургер-меню |
+
+### ✅ Интерактив и UX
+
+- ⏳ **Индикаторы загрузки** — скелетоны (skeleton screens) вместо спинера
+- 🚫 **Обработка ошибок** — 404, 500, fallback-компоненты
+- 🧭 **Навигация** — активные ссылки, хлебные крошки
+- 🖼 **Заглушки изображений** — fallback при ошибке загрузки
+- 🎭 **Кастомный скроллбар** — стилизованный под вселенную Star Wars
+- 🔄 **Персистентность** — сохранение темы и избранного между сессиями
+
+---
+
+## 📂 Архитектура проекта
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
