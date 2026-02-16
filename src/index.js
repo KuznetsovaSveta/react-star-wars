@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <BrowserRouter basename={`/${REPO_NAME}/`}> */}
+      <BrowserRouter basename={`/${REPO_NAME}/`}>
       {/* если открывается локально - удалить basename */}
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
       {/* ThemeProvider - все, что в нем есть, передается в другие компоненты*/}
         <ThemeProvider>
           <App />
