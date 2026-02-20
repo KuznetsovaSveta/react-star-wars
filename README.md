@@ -15,7 +15,7 @@
 ![CSS Modules](https://img.shields.io/badge/CSS_Modules-000000?style=for-the-badge&logo=css-modules&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github%20pages&logoColor=white)
 
-- **React 18** — функциональные компоненты, хуки (useState, useEffect, useRef, custom hooks)
+- **React 19** — функциональные компоненты, хуки (useState, useEffect, useRef, custom hooks)
 - **React Router v6** — динамическая маршрутизация, защищённые роуты
 - **Redux Toolkit** — глобальное состояние, слайсы (избранное, фильтры, тема)
 - **CSS Modules** — изолированная стилизация компонентов
